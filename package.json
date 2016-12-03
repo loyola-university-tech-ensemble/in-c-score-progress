@@ -1,0 +1,29 @@
+{
+  "name": "in-c-score-progress",
+  "productName": "InCScoreProgress",
+  "version": "1.0.0",
+  "description": "App for displaying performers' progress of Terry Riley's \"In C\".",
+  "keywords": ["electron", "max", "msp", "Max 7", "In C", "Terry Riley"],
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "app": "electron-packager . --all --out build/"
+  },
+  "author": "Griffin Moe",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmoe/in-c-score-progress.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gmoe/my_package/issues"
+  },
+  "homepage": "https://github.com/gmoe/in-c-score-progress",
+  "dependencies": {
+    "d3": "^4.3.0",
+    "electron": "^1.4.7"
+  },
+  "devDependencies": {
+    "electron-packager": "^8.3.0"
+  }
+}

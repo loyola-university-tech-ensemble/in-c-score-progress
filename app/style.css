@@ -1,0 +1,46 @@
+body {
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  background-color: #ddd;
+  color: white;
+}
+
+.phrase-section {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 30px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 2px 3px 5px #999;
+}
+
+.phrase-section > img {
+  max-width: 100%;
+  height: auto;
+  margin: 5px;
+}
+
+.players {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.player {
+  display: flex;
+  float: left;
+  font-size: 1.25rem;
+  margin: 5px;
+  padding: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+.player > span {
+  width: 100%;
+  align-self: center;
+  text-align: center;
+}
+
+::-webkit-scrollbar { 
+  display: none; 
+}
