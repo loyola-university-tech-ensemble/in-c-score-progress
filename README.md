@@ -20,6 +20,12 @@ to the correct port on your local machine, assuming you are hosting the app:
 
 ## Downloads
 
+**Version 1.1.0 ([downloads][v1.1])**
+
+* [Windows x64](https://github.com/loyola-university-tech-ensemble/in-c-score-progress/releases/download/v1.1.0/InCScoreProgress-win32-x64.zip)
+* [macOS](https://github.com/loyola-university-tech-ensemble/in-c-score-progress/releases/download/v1.1.0/InCScoreProgress-macos-x64.dmg)
+* [Linux x64](https://github.com/loyola-university-tech-ensemble/in-c-score-progress/releases/download/v1.1.0/InCScoreProgress-linux-x64.zip)
+
 **Version 1.0.0 ([downloads][v1])**
 
 * [Windows x64](https://github.com/gmoe/in-c-score-progress/releases/download/v1.0.0/InCScoreProgress-win32-x64.zip)
@@ -35,3 +41,4 @@ Created for the Loyola University (Chicago) Technology Ensemble. Fall 2016
 [inC]: https://en.wikipedia.org/wiki/In_C
 [max]: https://cycling74.com/max7/
 [v1]: https://github.com/gmoe/in-c-score-progress/releases/tag/v1.0.0
+[v1.1]: https://github.com/gmoe/in-c-score-progress/releases/tag/v1.1.0
