@@ -17,9 +17,9 @@ module.exports = (renderer) => {
 
   const arraySort = (a,b) => { return a - b; }
 
-  const updateMatrix = (matrix,data) => {
+  const updateMatrix = (matrix,playerData) => {
     const cidExists = matrix.reduce((a,b) => {
-      let index = Math.max(a.index, b.indexOf(data.cid));
+      let index = Math.max(a.index, b.indexOf(playerData.cid));
       return { 
         "phrase": (index==-1) ? a.phrase+1 : a.phrase,
         "index": index
@@ -27,13 +27,13 @@ module.exports = (renderer) => {
     }, {"phrase": 0, "index": -1});
 
     if(cidExists.index == -1) {
-      matrix[data.phrase].push(data.cid);
-      matrix[data.phrase].sort(arraySort);
+      matrix[playerData.phrase].push(playerData.cid);
+      matrix[playerData.phrase].sort(arraySort);
     } else {
       matrix[cidExists.phrase].splice(cidExists.index, 1);
       matrix[cidExists.phrase].sort(arraySort);
-      matrix[data.phrase].push(data.cid);
-      matrix[data.phrase].sort(arraySort);
+      matrix[playerData.phrase].push(playerData.cid);
+      matrix[playerData.phrase].sort(arraySort);
     }
     
   }
@@ -55,7 +55,7 @@ module.exports = (renderer) => {
     console.log(`server got: [${data.cid} ${data.phrase}] from ${rinfo.address}:${rinfo.port}`);
     
     updateMatrix(playerMatrix, data);
-    renderer.update(playerMatrix);
+    renderer.update(playerMatrix, data.cid);
   });
 
   server.on('listening', () => {

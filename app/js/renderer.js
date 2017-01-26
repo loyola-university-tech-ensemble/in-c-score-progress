@@ -12,9 +12,9 @@ const addPhraseSection = (parent, phraseNum) => {
     .attr('src', `phrases/Sco${phraseNum}.png`);
 }
 
-const colorById = (cid) => {
-  const hue = (cid * 100) % 355;
-  return d3.hsl(hue, 0.4, 0.6);
+const colorById = (playerId, saturation = 0.4) => {
+  const hue = (playerId * 100) % 355;
+  return d3.hsl(hue, saturation, 0.6);
 }
 
 const scrollToPhrase = (phraseNum) => {
@@ -35,7 +35,7 @@ module.exports.start = () => {
   }
 } 
 
-module.exports.update = (playerMatrix) => {
+module.exports.update = (playerMatrix, changedPlayerId) => {
   //Wipe existing player ids
   d3.selectAll('section.phrase-section')
     .selectAll('div.players').remove();
@@ -51,12 +51,23 @@ module.exports.update = (playerMatrix) => {
     .data((d) => { return d; })
     .enter()
     .insert('span')
+    .attr('id', (d) => {
+      return `player-${d}`;
+    })
     .attr('class', 'player')
     .style('background-color', (d) => { 
       return colorById(d).toString(); 
     })
     .insert('span')
     .text((d) => { return d; });
+
+  //Animate changed player ID
+  d3.transition()
+    .select(`#player-${changedPlayerId}`)
+    .duration(400)
+    .styleTween('background-color', () => {
+      return d3.interpolateHsl(colorById(changedPlayerId, 0.9), colorById(changedPlayerId));
+    });
 
   //Find lowest playing phrase and scroll to it
   let phraseNum = playerMatrix.findIndex(x => { return x.length != 0; }) + 1;
