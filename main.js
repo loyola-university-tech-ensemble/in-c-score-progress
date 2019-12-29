@@ -1,29 +1,26 @@
-const electron = require('electron')
-const app = electron.app
-const BrowserWindow = electron.BrowserWindow
+const path = require('path');
+const url = require('url');
+const { app, BrowserWindow } = require('electron');
 
-const path = require('path')
-const url = require('url')
-
-let mainWindow
+let mainWindow = null;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    width: 1200,
     height: 800,
-  })
+    width: 1200,
+  });
 
   mainWindow.loadURL(url.format({
     pathname: path.join(__dirname, 'app/index.html'),
     protocol: 'file:',
-    slashes: true
-  }))
+    slashes: true,
+  }));
 
   mainWindow.on('closed', () => {
-    mainWindow = null
-  })
-})
+    mainWindow = null;
+  });
+});
 
 app.on('window-all-closed', () => {
-  app.quit()
-})
+  app.quit();
+});
