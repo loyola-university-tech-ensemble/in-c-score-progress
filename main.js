@@ -8,13 +8,10 @@ app.on('ready', () => {
   mainWindow = new BrowserWindow({
     height: 800,
     width: 1200,
+    webPreferences: { nodeIntegration: true },
   });
 
-  mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'app/index.html'),
-    protocol: 'file:',
-    slashes: true,
-  }));
+  mainWindow.loadFile('app/index.html')
 
   mainWindow.on('closed', () => {
     mainWindow = null;
