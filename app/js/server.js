@@ -37,19 +37,20 @@ module.exports = (renderer) => {
 
   const processMaxListPacket = (buffer) => {
     const data = buffer.slice(12);
-    const cid = data.readInt32BE();
+    const cid = data.readInt32BE(0);
     const phrase = data.readInt32BE(4);
     return { cid, phrase: phrase - 1 };
   };
 
   server.on('error', (err) => {
-    console.log(`server error:\n${err.stack}`);
+    console.error(`server error:\n${err.message}`);
+    console.error(err.stack);
     server.close();
   });
 
   server.on('message', (msg, rinfo) => {
     const data = processMaxListPacket(msg);
-    console.log(`server got: [${data.cid} ${data.phrase}] from ${rinfo.address}:${rinfo.port}`);
+    console.debug(`server got: [${data.cid} ${data.phrase}] from ${rinfo.address}:${rinfo.port}`);
 
     updateMatrix(playerMatrix, data);
     renderer.update(playerMatrix, data.cid);
@@ -61,5 +62,5 @@ module.exports = (renderer) => {
     renderer.start();
   });
 
-  server.bind(41234); // server listening 0.0.0.0:41234
+  server.bind(41234);
 };
