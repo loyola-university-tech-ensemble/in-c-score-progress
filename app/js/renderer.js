@@ -11,9 +11,9 @@ const addPhraseSection = (parent, phraseNum) => {
     .attr('src', `phrases/${phraseNum}.svg`);
 };
 
-const colorById = (playerId, saturation = 0.4) => {
+const colorById = (playerId, saturation = 0.55, lightness = 0.6) => {
   const hue = (playerId * 100) % 355;
-  return d3.hsl(hue, saturation, 0.6);
+  return d3.hsl(hue, saturation, lightness);
 };
 
 const scrollToPhrase = (phraseNum) => {
@@ -60,7 +60,7 @@ module.exports.update = (playerMatrix, changedPlayerId) => {
   d3.transition()
     .select(`#player-${changedPlayerId}`)
     .duration(400)
-    .styleTween('background-color', () => d3.interpolateHsl(colorById(changedPlayerId, 0.9), colorById(changedPlayerId)));
+    .styleTween('background-color', () => d3.interpolateHsl(colorById(changedPlayerId, 0.9, 0.3), colorById(changedPlayerId)));
 
   // Find lowest playing phrase and scroll to it
   const phraseNum = playerMatrix.findIndex((x) => x.length !== 0) + 1;
