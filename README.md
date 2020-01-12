@@ -57,9 +57,9 @@ $ npm start
 
 ## About
 
-Created for the Loyola University (Chicago) Technology Ensemble. Fall 2016
+Created for the Loyola University (Chicago) Technology Ensemble, Fall 2016.
 
-[License](LICENSE.md)
+Copyright (c) 2020 Griffin Moe. Released under [MIT license](LICENSE.md).
 
 [inC]: https://en.wikipedia.org/wiki/In_C
 [inCApp]: https://github.com/loyola-university-tech-ensemble/InC
