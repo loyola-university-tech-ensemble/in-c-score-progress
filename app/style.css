@@ -12,12 +12,13 @@ body {
   padding: 15px;
   background-color: #fff;
   box-shadow: 2px 3px 5px #999;
+  border-radius: 5px;
 }
 
 .phrase-section > img {
-  max-width: 100%;
-  height: auto;
-  margin: 5px;
+  height: 80px;
+  margin: 15px;
+  object-fit: contain;
 }
 
 .players {
@@ -41,6 +42,6 @@ body {
   text-align: center;
 }
 
-::-webkit-scrollbar { 
-  display: none; 
+::-webkit-scrollbar {
+  display: none;
 }

@@ -8,7 +8,7 @@ const addPhraseSection = (parent, phraseNum) => {
     .attr('id', `phrase-${phraseNum}`)
     .attr('class', 'phrase-section')
     .append('img')
-    .attr('src', `phrases/Sco${phraseNum}.png`);
+    .attr('src', `phrases/${phraseNum}.svg`);
 };
 
 const colorById = (playerId, saturation = 0.4) => {

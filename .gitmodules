@@ -1,0 +1,3 @@
+[submodule "in-c-phrases-ly"]
+	path = in-c-phrases-ly
+	url = git@github.com:loyola-university-tech-ensemble/in-c-phrases-ly.git
