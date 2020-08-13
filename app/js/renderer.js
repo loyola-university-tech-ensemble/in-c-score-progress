@@ -1,4 +1,5 @@
 const d3 = require('d3');
+const phrasesPath = require('@loyola-university-tech-ensemble/in-c-phrases-ly').default;
 
 const NUM_PHRASES = 53;
 const VERT_PADDING = 15; // From style.css
@@ -8,7 +9,7 @@ const addPhraseSection = (parent, phraseNum) => {
     .attr('id', `phrase-${phraseNum}`)
     .attr('class', 'phrase-section')
     .append('img')
-    .attr('src', `phrases/${phraseNum}.svg`);
+    .attr('src', `${phrasesPath}/svgs/${phraseNum}.svg`);
 };
 
 const colorById = (playerId, saturation = 0.55, lightness = 0.6) => {
